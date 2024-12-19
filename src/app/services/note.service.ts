@@ -13,12 +13,18 @@ export class NoteService {
   constructor() { }
 
   createNote(note:Note) : void {
-    note.id = this.notes.length;
+    note.id = new Date().getTime();
     this.notes.push(note)
     this.noteSubject.next(this.notes)
   }
 
   getNotesObservable() : Observable<Note[]> {
     return this.noteSubject.asObservable();
+  }
+
+
+  deleteNote(id:number): void {
+    this.notes = this.notes.filter(note => note.id  !== id);
+    this.noteSubject.next(this.notes)
   }
 }

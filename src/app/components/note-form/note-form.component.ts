@@ -18,7 +18,7 @@ export class NoteFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.noteForm = this.formBuilder.group({
-      id:1,
+      id: new Date().getTime(),
       title: ['', Validators.required],
       content:['', Validators.required]
     })
