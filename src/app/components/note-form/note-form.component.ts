@@ -31,8 +31,14 @@ export class NoteFormComponent implements OnInit {
     }
 
     const note: Note = this.noteForm.value;
-    console.log(note)
     // save to notes array in the note service
+    this.noteService.createNote(note);
+
+    //Test note list here
+    // this.noteService.getNotesObservable().subscribe((notes: Note[]) => {
+    //   console.log(notes);
+    // });
+
     this.noteForm.reset();
   }
 
