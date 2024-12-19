@@ -23,6 +23,7 @@ export class NoteListComponent  implements  OnInit{
   }
 
   editNote(note:Note): void {
+    this.noteService.setEditable(true);
 
   }
 

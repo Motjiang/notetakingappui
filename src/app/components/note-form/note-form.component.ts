@@ -11,8 +11,12 @@ import { NoteService } from 'src/app/services/note.service';
 export class NoteFormComponent implements OnInit {
 
   noteForm!: FormGroup;
+  isEdit!: boolean;
 
   constructor(private noteService:NoteService, private formBuilder:FormBuilder) {
+    this.noteService.getEditable().subscribe({
+      next: (response) => (this.isEdit = response),
+    });
 
   }
 
