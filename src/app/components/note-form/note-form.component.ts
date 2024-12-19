@@ -24,4 +24,16 @@ export class NoteFormComponent implements OnInit {
     })
   }
 
+
+  onSubmit(): void {
+    if(this.noteForm.invalid){
+      return;
+    }
+
+    const note: Note = this.noteForm.value;
+    console.log(note)
+    // save to notes array in the note service
+    this.noteForm.reset();
+  }
+
 }
